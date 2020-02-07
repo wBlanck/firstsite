@@ -13,6 +13,11 @@ html {
     html {
       font-size: 55%; } }
 
+.sprite {
+  background-image: url(../img/spritesheet.png);
+  background-repeat: no-repeat;
+  display: block; }
+
 .container {
   max-width: 120rem;
   margin: 0 auto;
@@ -37,6 +42,22 @@ html {
   align-items: start;
   margin-bottom: 2rem;
   color: #333333; }
+  .item .webdesign-icon {
+    width: 55px;
+    height: 40px;
+    background-position: -42px -5px; }
+  .item .uxui-design-icon {
+    width: 53px;
+    height: 47px;
+    background-position: -107px -5px; }
+  .item .photography-icon {
+    width: 55px;
+    height: 43px;
+    background-position: -5px -62px; }
+  .item .appdev-icon {
+    width: 45px;
+    height: 40px;
+    background-position: -70px -62px; }
   @media only screen and (max-width: 50em) {
     .item {
       text-align: center;
@@ -117,21 +138,46 @@ html {
   border: 2rem solid #503392; }
   .overlay__icon {
     padding: 1rem;
-    border: 2px solid white;
-    height: 3.5rem;
-    width: 3.6rem;
-    cursor: pointer; }
+    width: 3.8rem;
+    height: 3.7rem;
+    cursor: pointer;
+    border: 2px solid #fff; }
     .overlay__icon--heart {
+      width: 16px;
+      height: 12px;
+      background-position: -170px -5px; }
+    .overlay__icon--search {
+      width: 14px;
+      height: 13px;
+      background-position: -170px -61px; }
+    .overlay__icon--purple {
       background-color: #ed145b;
-      border: 2px solid #ed145b;
-      margin-left: 1rem; }
+      margin-left: 0.5rem; }
 
 .stat-item {
   display: grid;
   justify-items: center;
   color: #ffffff; }
-  .stat-item__img {
-    margin-bottom: 3rem; }
+  .stat-item__clients {
+    width: 47px;
+    height: 51px;
+    background-position: -204px -3px; }
+  .stat-item__projects {
+    width: 51px;
+    height: 48px;
+    background-position: -5px -150px; }
+  .stat-item__feedbacks {
+    width: 51px;
+    height: 44px;
+    background-position: -66px -147px; }
+  .stat-item__freebies {
+    width: 51px;
+    height: 46px;
+    background-position: -127px -148px; }
+  .stat-item > i {
+    margin-bottom: 3rem;
+    height: 5.1rem;
+    width: 5.1rem; }
   .stat-item__number {
     font-size: 3.8rem;
     font-weight: 700;
@@ -259,7 +305,8 @@ fieldset {
     background-color: #fff;
     grid-row: 1;
     position: relative;
-    top: 50%;
+    align-self: center;
+    z-index: 100;
     display: none; }
     @media only screen and (max-width: 50em) {
       .header__hamburger {
@@ -278,13 +325,19 @@ fieldset {
   .header .logo {
     grid-column: 1 / 6;
     grid-row: 1;
-    cursor: pointer; }
+    cursor: pointer;
+    align-self: center; }
+    .header .logo__sprite {
+      width: 193px;
+      height: 29px;
+      background-position: -5px -115px; }
   .header .nav {
     display: flex;
     align-items: center;
     grid-column: 6 / -1;
     grid-row: 1;
-    justify-self: end; }
+    justify-self: end;
+    z-index: 100; }
     .header .nav__list {
       display: flex; }
     .header .nav__item {
