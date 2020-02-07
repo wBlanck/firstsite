@@ -1,0 +1,41 @@
+.about-section {
+    padding: 12rem 0;
+    .content {
+        @include twelvecol;
+        @media only screen and (max-width: $bp-medium) {
+            grid-row-gap: 10rem;
+        }
+        
+        
+        &__title {
+            grid-column: 1 / 7;
+            font-size: 13rem;
+            text-transform: uppercase;
+            color: $color-grey-light;
+            width: min-content;
+            @media only screen and (max-width: $bp-medium) {
+                grid-row: 1;
+                grid-column: 1 / -1;
+                width: 100%;
+                font-size: 7rem;
+                text-align: center;
+            }
+        }
+        &__skills {
+            grid-column: 7 / 12;
+            align-self: center;
+            @media only screen and (max-width: $bp-largest) {
+                grid-column: 7 / -1;
+            }
+
+            @media only screen and (max-width: $bp-medium) {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+                justify-content: center;
+                grid-column-gap: 3rem;
+            }
+        }
+    }
+}

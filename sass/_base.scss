@@ -1,0 +1,303 @@
+// COLOR VARIABLES
+$color-purple-dark: #503392;
+$color-purple: #654b9f;
+$color-grey-dark: #333333;
+$color-grey-light: #d7d7d7;
+$color-white: #ffffff;
+
+// MIXINS
+@mixin twelvecol {
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+}
+
+//RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; // 1200px
+$bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px
+$bp-small: 37.5em; // 600px
+$bp-smallest: 23.75em; // 380px
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    @media only screen and (max-width: $bp-largest) {
+        font-size: 55%;
+    }
+}
+
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.scroll-top {
+    position: fixed;
+    width: 4rem;
+    height: 4rem;
+    background-color: #fff;
+    right: 2rem;
+    bottom: 2rem;
+    
+    z-index: 2;
+
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: minmax(min-content, 5.5rem) minmax(min-content, 1fr);
+    grid-column-gap: 3.5rem;
+    align-items: start;
+    margin-bottom: 2rem;
+    color: $color-grey-dark;
+    @media only screen and (max-width: $bp-medium) {
+        text-align: center;
+        grid-gap: 2rem;
+        margin-bottom: 4rem;
+    }
+    &__icon {
+        grid-row: 1 / span 1;
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: 1 / -1;
+            grid-row: 1;
+            justify-self: center;
+        }
+    }
+    &__title {
+        font-size: 1.9rem;
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            justify-self: center;
+        }
+    }
+    &__text {
+        font-size: 1.4rem;
+        grid-column: 2;
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: 1 / -1;
+            grid-row: 3;
+            justify-self: center;
+        }
+    }
+}
+
+.category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 5rem;
+    &__item {
+        font-size: 1.5rem;
+        padding: 0.4rem 2rem;
+        border: 2px solid $color-grey-dark;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        &:hover {
+            border: 2px solid $color-purple-dark;
+            background-color: $color-purple-dark;
+            color: $color-white;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+        @media only screen and (max-width: $bp-smallest) {
+            &:nth-child(3) {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem; 
+    width: 100%;
+    @media only screen and (max-width: $bp-largest) {
+        
+        grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+        
+    }
+    &__item {
+        position: relative;
+        &:hover .overlay {
+            opacity: 1;
+        }
+    }
+    &__img {
+        width: 100%;
+    }
+}
+
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    width: 80%;
+    opacity: 0;
+    transition: .5s ease;
+    border: 2rem solid $color-purple-dark;
+
+    &__icon{
+        padding: 1rem;
+        border: 2px solid white;
+        height: 3.5rem;
+        width: 3.6rem;
+        cursor: pointer;
+
+        &--heart {
+            background-color: #ed145b;
+            border: 2px solid #ed145b;
+            margin-left: 1rem;
+        }
+    }
+
+}
+
+.stat-item {
+    display: grid;
+    justify-items: center;
+    
+    color: $color-white;
+    &__img {
+       margin-bottom: 3rem;
+       
+    }
+    &__number {
+        font-size: 3.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    &__title {
+        font-size: 2rem;
+        font-weight: 300;
+    }
+}
+
+.form {
+    text-align: left;
+    &__btn {
+        padding: 1rem 4rem;
+        background-color: $color-purple-dark;
+        color: $color-white;
+        border: 1px solid white;
+        font-size: 1.5rem;
+    }
+    &__title {
+        font-size: 3.3rem;
+        font-weight: 400;
+        margin-bottom: 3rem;
+    }
+    &__fields {
+        display: flex;
+        flex-direction: column;
+    }
+    &__input,
+    &__textarea {
+        padding: 1rem;
+        border: 1px solid white;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+        background-color: inherit;
+        color: $color-white;
+    }
+    &__textarea {
+        resize: none;
+    }
+}
+
+.information {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-template-rows:  repeat(4, max-content);
+    grid-row-gap: 3rem;
+    &__item {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        grid-template-rows:  repeat(2, max-content);
+        grid-column-gap: 2rem;
+        justify-items: start;
+    }
+    &__img {
+        grid-row: 1/ span 2;
+    }
+    &__title {
+        grid-column: 1/-1;
+        grid-row: 1;
+        font-size: 3.3rem;
+        font-weight: 400;
+    }
+    &__text {
+        font-size: 1.6rem;
+    }
+}
+
+
+
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 4rem;
+    bottom: 4rem;;
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+    transform: rotate(-90deg);
+    background-color: $color-purple-dark;
+    z-index: 2;
+
+    @media only screen and (max-width: $bp-large) {
+        display: none;  
+    }
+}
+
+.arrow {
+    width: 3rem;
+    height: 0.4rem;
+    background-color: #fff;
+    position: relative;
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        width: 2rem;
+        height: 0.4rem;
+        right: -0.3rem;
+        background-color: #fff;
+    }
+    &::before {
+        top: -6px;
+        transform: rotate(45deg);
+    }
+    &::after {
+        top: 6px;
+        transform: rotate(-45deg);
+    }
+}

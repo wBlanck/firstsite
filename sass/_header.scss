@@ -1,0 +1,121 @@
+.header-section {
+    background-image: url("../img/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+.header {
+    @include twelvecol;
+    grid-template-rows: 3rem calc(100vh - 8rem);
+    padding-top: 5rem;
+    &__hamburger {
+        width: 3.5rem;
+        height: 2px;
+        background-color: #fff;
+        grid-row: 1;
+        position: relative;
+        top: 50%;
+        display: none;
+        @media only screen and (max-width: $bp-medium) {
+            display: block;
+            grid-column: 12;
+        }
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: #fff;
+        }
+        &:before {
+            top: -7px;
+        }
+        &:after {
+            bottom: -7px;
+        }
+    }
+    .logo {
+        grid-column: 1 / 6;
+        grid-row: 1;
+        cursor: pointer;
+    }
+    .nav {
+        display: flex;
+        align-items: center;
+        grid-column: 6 / -1;
+        grid-row: 1;
+        justify-self: end;
+        &__list {
+            display: flex;
+        }
+        &__item {
+            margin-right: 2.3rem;
+            &:last-child {
+                margin-right: 0;
+                a {
+                    padding-right: 0;
+                }
+            }
+        }
+        &__link {
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            color: $color-grey-light;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 0 2rem;
+            cursor: pointer;
+            &:hover {
+                color: $color-white;
+            }
+            @media only screen and (max-width: $bp-medium) {
+                display: none;
+            }
+        }
+    }
+    .content {
+        grid-column: 1 / -1;
+        justify-self: center;
+        align-self: center;
+        text-align: center;
+        &__title,
+        &__sub-title {
+            color: $color-white;
+        }
+        &__title {
+            font-size: 6.5rem;
+            margin-bottom: 1rem;
+            @media only screen and (max-width: $bp-small) {
+                font-size: 4.5rem;
+            }
+        }
+        &__sub-title {
+            font-size: 3.3rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 9rem;
+            @media only screen and (max-width: $bp-small) {
+                font-size: 2.5rem;
+            }
+        }
+        
+    }
+    &__btn {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+        background-color: inherit;
+        padding: 1rem 2.5rem;
+        border-radius: 5rem;
+        border: 1px solid $color-white;
+        color: $color-white;
+        &:hover {
+            color: $color-white;
+            border: 1px solid $color-white;
+            background-color: #8352f1;
+        }
+    }
+}
