@@ -63,10 +63,10 @@ html {
       text-align: center;
       grid-gap: 2rem;
       margin-bottom: 4rem; } }
-  .item__icon {
+  .item .sprite-icon {
     grid-row: 1 / span 1; }
     @media only screen and (max-width: 50em) {
-      .item__icon {
+      .item .sprite-icon {
         grid-column: 1 / -1;
         grid-row: 1;
         justify-self: center; } }
@@ -176,8 +176,8 @@ html {
     background-position: -127px -148px; }
   .stat-item > i {
     margin-bottom: 3rem;
-    height: 5.1rem;
-    width: 5.1rem; }
+    height: 51px;
+    width: 51px; }
   .stat-item__number {
     font-size: 3.8rem;
     font-weight: 700;
@@ -584,6 +584,9 @@ fieldset {
     .footer .content__copyright {
       font-size: 2rem;
       color: #555555; }
+      @media only screen and (max-width: 23.75em) {
+        .footer .content__copyright {
+          margin-bottom: 1rem; } }
     .footer .content .socials__list {
       display: flex;
       align-content: flex-end; }
